@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#f9f0e0" />
+    <meta
+      name="description"
+      content="Shermuhammad va Zebinisoning nikoh toʻyiga taklifnoma. 2026-yil 12-dekabr."
+    />
+    <title>Shermuhammad &amp; Zebiniso — Taklifnoma</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ivx" id="invitation">
+      <nav class="ivx-langs" aria-label="Tilni tanlang">
+        <button class="ivx-lang is-active" type="button" data-lang="uz">
+          UZ
+        </button>
+        <button class="ivx-lang" type="button" data-lang="ru">RU</button>
+        <button class="ivx-lang" type="button" data-lang="en">EN</button>
+      </nav>
+
+      <button
+        class="ivx-cover"
+        id="cover"
+        type="button"
+        aria-label="Taklifnomani ochish"
+      >
+        <span class="ivx-cover__stage" aria-hidden="true">
+          <span class="ivx-cover__art"></span>
+          <span class="ivx-cover__seal"
+            ><span class="ivx-mono "
+              ><span>SH</span><span class="ivx-mono__amp">&amp;</span
+              ><span>Z</span></span
+            ></span
+          >
+        </span>
+        <span class="ivx-cover__cta" aria-hidden="true">
+          <span class="ivx-cover__chev"></span>
+          <span class="ivx-cover__label">Ochish uchun bosing</span>
+        </span>
+      </button>
+      <div class="ivx-film" id="film" aria-hidden="true">
+        <div class="ivx-film__stage">
+          <video
+            id="opening"
+            muted
+            playsinline
+            preload="auto"
+            src="./assets/ivory/envelope-open.mp4"
+          ></video>
+        </div>
+      </div>
+
+      <main class="ivx-main" aria-hidden="true" id="main">
+        <div class="ivx-page">
+          <section class="ivx-sec ivx-hero">
+            <p class="ivx-hero__kicker">Nikoh kuni</p>
+            <p class="ivx-hero__date">
+              11.23.26 <span class="ivx-hero__time">16:00</span>
+            </p>
+            <h1 class="ivx-hero__names">
+              <span class="ivx-hero__name">Shermuhammad</span
+              ><span class="ivx-hero__amp">&amp;</span
+              ><span class="ivx-hero__name">Zebiniso</span>
+            </h1>
+            <a class="ivx-scroll" href="#ivx-blessing"
+              ><span class="ivx-scroll__text">Pastga suring</span
+              ><span class="ivx-scroll__chev" aria-hidden="true"></span
+            ></a>
+            <img
+              class="ivx-bouquet ivx-bouquet--l"
+              src="./assets/ivory/bouquet-left.webp"
+              alt=""
+            />
+            <img
+              class="ivx-bouquet ivx-bouquet--r"
+              src="./assets/ivory/bouquet-right.webp"
+              alt=""
+            />
+          </section>
+
+          <section class="ivx-sec ivx-paper ivx-blessing" id="ivx-blessing">
+            <div class="ivx-inner ivx-reveal">
+              <img
+                class="ivx-basmala"
+                src="./assets/ivory/basmala.webp"
+                alt="Bismillahir rohmanir rohiym"
+              />
+              <div class="ivx-verse">
+                <span>Ikki qalb</span><span>Bitta taqdir</span
+                ><span>Alloh yozgan umr</span>
+              </div>
+              <p class="ivx-body">
+                Sizni nikoh toʻyimiz munosabati bilan boʻlib oʻtadigan “Visol
+                oqshomi”ga taklif etamiz.
+              </p>
+            </div>
+          </section>
+
+          <section class="ivx-sec ivx-countdown">
+            <div class="ivx-inner">
+              <h2 class="ivx-script ivx-reveal">Bayram boshlanishiga</h2>
+              <div
+                class="ivx-count ivx-inview"
+                id="countdown"
+                role="timer"
+                aria-live="off"
+              >
+                <span class="ivx-count__cell"
+                  ><span class="ivx-count__numwrap"
+                    ><span class="ivx-count__num" data-part="days"
+                      >00</span
+                    ></span
+                  ><span class="ivx-count__lbl">Kun</span></span
+                >
+                <span class="ivx-count__sep">:</span>
+                <span class="ivx-count__cell"
+                  ><span class="ivx-count__numwrap"
+                    ><span class="ivx-count__num" data-part="hours"
+                      >00</span
+                    ></span
+                  ><span class="ivx-count__lbl">Soat</span></span
+                >
+                <span class="ivx-count__sep">:</span>
+                <span class="ivx-count__cell"
+                  ><span class="ivx-count__numwrap"
+                    ><span class="ivx-count__num" data-part="minutes"
+                      >00</span
+                    ></span
+                  ><span class="ivx-count__lbl">Daqiqa</span></span
+                >
+                <span class="ivx-count__sep">:</span>
+                <span class="ivx-count__cell"
+                  ><span class="ivx-count__numwrap"
+                    ><span class="ivx-count__num" data-part="seconds"
+                      >00</span
+                    ></span
+                  ><span class="ivx-count__lbl">Soniya</span></span
+                >
+              </div>
+              <p class="ivx-body ivx-reveal" id="countdown-finished" hidden>
+                Bugun aynan oʻsha kun. Sizni kutamiz.
+              </p>
+            </div>
+          </section>
+
+          <!-- <section class="ivx-sec ivx-paper ivx-schedule">
+            <div class="ivx-inner ivx-reveal">
+              <div class="ivx-sched-head">
+                <img src="./assets/ivory/ornament-left.webp" alt="" />
+                <h2 class="ivx-script">Kun tartibi</h2>
+                <img src="./assets/ivory/ornament-right.webp" alt="" />
+              </div>
+              <div class="ivx-sched-wrap">
+                <span class="ivx-sched__spine" aria-hidden="true"></span>
+                <ol class="ivx-sched">
+                  <li class="ivx-sched__row">
+                    <span class="ivx-sched__time">18:00</span
+                    ><span class="ivx-sched__node"></span
+                    ><span class="ivx-sched__label"
+                      >Mehmonlarni kutib olish</span
+                    >
+                  </li>
+                  <li class="ivx-sched__row">
+                    <span class="ivx-sched__time">19:00</span
+                    ><span class="ivx-sched__node"></span
+                    ><span class="ivx-sched__label">Nikoh marosimi</span>
+                  </li>
+                  <li class="ivx-sched__row">
+                    <span class="ivx-sched__time">20:00</span
+                    ><span class="ivx-sched__node"></span
+                    ><span class="ivx-sched__label">Kokteyl</span>
+                  </li>
+                  <li class="ivx-sched__row">
+                    <span class="ivx-sched__time">21:00</span
+                    ><span class="ivx-sched__node"></span
+                    ><span class="ivx-sched__label">Kechki taom</span>
+                  </li>
+                  <li class="ivx-sched__row">
+                    <span class="ivx-sched__time">22:00</span
+                    ><span class="ivx-sched__node"></span
+                    ><span class="ivx-sched__label">Raqs</span>
+                  </li>
+                </ol>
+                <span class="ivx-sched__rose" aria-hidden="true"></span>
+              </div>
+            </div>
+          </section> -->
+
+          <!-- <section class="ivx-sec ivx-paper ivx-singer">
+            <div class="ivx-reveal">
+              <h2 class="ivx-script">Sevimli xonandamiz</h2>
+              <div class="ivx-singer__list">
+                <div class="ivx-singer__item">
+                  <div class="ivx-singer__frame">
+                    <img
+                      src="./assets/uploads/photo-iF6fW22Vb2OLXqdSbd6xv.jpg"
+                      alt="Gulsanam Mamazoitova"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="ivx-singer__lines">
+                    <p class="ivx-singer__name">Gulsanam Mamazoitova</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section> -->
+
+          <section class="ivx-sec ivx-location ivx-inview">
+            <img
+              class="ivx-petal ivx-petal--1"
+              src="./assets/ivory/petal-1.webp"
+              alt=""
+            /><img
+              class="ivx-petal ivx-petal--2"
+              src="./assets/ivory/petal-2.webp"
+              alt=""
+            /><img
+              class="ivx-petal ivx-petal--3"
+              src="./assets/ivory/petal-3.webp"
+              alt=""
+            /><img
+              class="ivx-petal ivx-petal--4"
+              src="./assets/ivory/petal-4.webp"
+              alt=""
+            /><img
+              class="ivx-petal ivx-petal--5"
+              src="./assets/ivory/petal-5.webp"
+              alt=""
+            /><img
+              class="ivx-petal ivx-petal--6"
+              src="./assets/ivory/petal-6.webp"
+              alt=""
+            />
+            <div class="ivx-inner ivx-reveal">
+              <h2 class="ivx-script">Manzil</h2>
+              <img
+                class="ivx-divider"
+                src="./assets/ivory/divider.webp"
+                alt=""
+              />
+              <p class="ivx-venue">FAYZ toʻyxonasi</p>
+              <p class="ivx-address">Uchko'prik tumani Katta Qashqar qishlog'i, Farg'ona</p>
+            </div>
+          </section>
+          <section class="ivx-sec ivx-map">
+            <div class="ivx-inner ivx-reveal">
+              <img
+                class="ivx-map__orn"
+                src="./assets/ivory/map-ornament-top.webp"
+                alt=""
+              />
+              <div class="ivx-map__plate">
+                <div class="ivx-map__inner">
+                  <iframe
+                    src="https://maps.app.goo.gl/7FgBh2uF2eYFEjvE6"
+                    title="FAYZ toʻyxonasi xaritada"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <img
+                  class="ivx-map__frame"
+                  src="./assets/ivory/map-frame.svg"
+                  alt=""
+                />
+              </div>
+              <img
+                class="ivx-map__orn"
+                src="./assets/ivory/map-ornament-bottom.webp"
+                alt=""
+              />
+              <div class="ivx-maps">
+                <a
+                  class="ivx-btn ivx-btn--solid"
+                  href="https://maps.app.goo.gl/7FgBh2uF2eYFEjvE6"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Google Maps</a
+                ><a
+                  class="ivx-btn"
+                  href="https://yandex.uz/maps/-/CXuyqSMS"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Yandex xarita</a
+                >
+              </div>
+            </div>
+          </section>
+
+          <section class="ivx-sec ivx-paper ivx-notes">
+            <img
+              class="ivx-floral ivx-floral--r"
+              src="./assets/ivory/floral-right.webp"
+              alt=""
+            /><img
+              class="ivx-floral ivx-floral--l"
+              src="./assets/ivory/floral-left.webp"
+              alt=""
+            />
+            <div class="ivx-inner ivx-reveal">
+              <div class="ivx-note">
+                <h2 class="ivx-script">Kiyim uslubi</h2>
+                <p class="ivx-body">Bayramona uslub</p>
+              </div>
+              <div class="ivx-note">
+                <h2 class="ivx-script">Sovgʻa haqida</h2>
+                <p class="ivx-body">
+                  Eng qimmatli sovgʻa — sizning ishtirokingiz.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="ivx-sec ivx-rsvp">
+            <div class="ivx-inner ivx-reveal">
+              <h2 class="ivx-script">Tashrifingizni tasdiqlang</h2>
+              <p class="ivx-body">
+                Bayramni yaxshi tayyorlashimiz uchun, iltimos, kelishingizni
+                tasdiqlang.
+              </p>
+              <button class="ivx-seal-btn" id="rsvp-open" type="button">
+                <img src="./assets/ivory/wax-seal.webp" alt="" /><span
+                  class="ivx-seal-btn__chev"
+                ></span
+                ><span class="ivx-seal-btn__label">Ochish uchun bosing</span>
+              </button>
+              <form class="ivx-form" id="rsvp-form" hidden>
+                <label class="form-field"
+                  ><span>Ismingizni kiriting</span
+                  ><input
+                    name="name"
+                    autocomplete="name"
+                    required
+                    placeholder="Ism familiya"
+                /></label>
+                <label class="form-field"
+                  ><span>Xabaringizni yozing</span
+                  ><textarea
+                    name="message"
+                    rows="4"
+                    placeholder="Xabaringiz"
+                  ></textarea>
+                </label>
+                <button class="ivx-btn ivx-btn--solid" type="submit">
+                  Xabar yuborish <span aria-hidden="true">➤</span>
+                </button>
+                <p class="form-status" id="rsvp-status" role="status"></p>
+              </form>
+            </div>
+          </section>
+
+          <section class="ivx-sec ivx-block ivx-guestbook">
+            <div class="ivx-inner ivx-reveal">
+              <h2 class="ivx-script">Tilaklar daftari</h2>
+              <form class="ivx-form" id="wish-form">
+                <label class="form-field"
+                  ><span>Ismingizni kiriting</span
+                  ><input
+                    name="name"
+                    autocomplete="name"
+                    required
+                    placeholder="Ism familiya"
+                /></label>
+                <label class="form-field"
+                  ><span>Xabaringizni yozing</span
+                  ><textarea
+                    name="message"
+                    rows="4"
+                    required
+                    placeholder="Tilagingiz"
+                  ></textarea>
+                </label>
+                <button class="ivx-btn ivx-btn--solid" type="submit">
+                  Xabar yuborish <span aria-hidden="true">➤</span>
+                </button>
+              </form>
+              <ul class="ivx-wishes" id="wishes" aria-live="polite"></ul>
+            </div>
+          </section>
+
+          <!-- <section class="ivx-sec ivx-closing">
+            <div class="ivx-closing__stage">
+              <img
+                class="ivx-closing__photo"
+                src="./assets/uploads/photo-lT0ITCEMY6ZQOaxUXqOE3.jpeg"
+                alt="Shermuhammad va Zebiniso"
+                loading="lazy"
+              />
+            </div>
+            <img
+              class="ivx-wreath"
+              src="./assets/ivory/wreath-bottom.webp"
+              alt=""
+            />
+            <div class="ivx-inner">
+              <h2 class="ivx-script ivx-reveal">
+                Sizni koʻrishdan baxtiyor boʻlamiz!
+              </h2>
+              <p class="ivx-closing__names ivx-reveal">Shermuhammad va Zebiniso</p>
+            </div>
+          </section> -->
+          <footer class="ivx-credit">murojat uchun <br>+998 20 034 31 07</footer> 
+        </div>
+      </main>
+
+      <button
+        class="music-control"
+        id="music-toggle"
+        type="button"
+        aria-label="Musiqani yoqish"
+        aria-pressed="false"
+      >
+        <span aria-hidden="true">♫</span>
+      </button>
+      <audio
+        id="music"
+        src="./assets/uploads/music-_erzJPJEcrpB_eIQqTher.mp3"
+        loop
+        preload="none"
+      ></audio>
+    </div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
