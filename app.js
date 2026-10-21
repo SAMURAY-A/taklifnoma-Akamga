@@ -7,12 +7,14 @@ const audio = document.querySelector("#music");
 const musicToggle = document.querySelector("#music-toggle");
 
 let opened = false;
+let openingStarted = false;
 main.inert = true;
 
 function revealInvitation() {
   if (opened) return;
   opened = true;
   film.classList.add("is-out");
+  opening.pause();
   invitation.classList.add("ivx--revealed");
   main.setAttribute("aria-hidden", "false");
   main.inert = false;
@@ -24,16 +26,18 @@ function revealInvitation() {
   observeReveals();
 }
 
-cover.addEventListener("click", async () => {
+cover.addEventListener("click", () => {
+  if (openingStarted || opened) return;
+  openingStarted = true;
+  cover.disabled = true;
   cover.classList.add("is-opening");
   film.classList.add("is-in");
-  try {
-    opening.currentTime = 0;
-    await opening.play();
-  } catch (error) {
-    window.setTimeout(revealInvitation, 1100);
-  }
+
+  // Start audio directly in the click gesture so browsers that block
+  // autoplay still allow playback after the visitor opens the invitation.
   audio.play().catch(() => {});
+  opening.currentTime = 0;
+  opening.play().catch(() => window.setTimeout(revealInvitation, 900));
 });
 
 opening.addEventListener("ended", revealInvitation);

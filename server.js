@@ -1,5 +1,4 @@
 const http = require("node:http");
-const { spawn } = require("node:child_process");
 const fs = require("node:fs/promises");
 const path = require("node:path");
 
@@ -60,45 +59,21 @@ function cleanField(value, limit) {
   return typeof value === "string" ? value.trim().slice(0, limit) : "";
 }
 
-function sendToTelegram(payload) {
-  return new Promise((resolve, reject) => {
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-    const config = [
-      `url = ${JSON.stringify(url)}`,
-      'request = "POST"',
-      'header = "Content-Type: application/json"',
-      `data = ${JSON.stringify(JSON.stringify(payload))}`,
-      "max-time = 15",
-      "",
-    ].join("\n");
-    const curl = spawn("curl", ["--silent", "--show-error", "--config", "-"], {
-      stdio: ["pipe", "pipe", "pipe"],
-    });
-    let stdout = "";
-    let stderr = "";
-
-    curl.stdout.setEncoding("utf8").on("data", (chunk) => {
-      stdout += chunk;
-    });
-    curl.stderr.setEncoding("utf8").on("data", (chunk) => {
-      stderr += chunk;
-    });
-    curl.once("error", reject);
-    curl.once("close", (code) => {
-      if (code !== 0)
-        return reject(new Error(stderr.trim() || "Telegram request failed."));
-      try {
-        resolve(JSON.parse(stdout));
-      } catch {
-        reject(new Error("Telegram returned an invalid response."));
-      }
-    });
-    curl.stdin.end(config);
-  });
+async function sendToTelegram(payload) {
+  const response = await fetch(
+    `https://api.telegram.org/bot${botToken}/sendMessage`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(15_000),
+    },
+  );
+  return response.json();
 }
 
 async function deliverMessage(request, response) {
-  if (!botToken || !chatId) {
+  if (!botToken?.trim() || !chatId?.trim()) {
     return sendJson(response, 503, { error: "Messaging is not configured." });
   }
 
@@ -123,6 +98,7 @@ async function deliverMessage(request, response) {
   }
 
   const text = [
+    type === "rsvp" ? "Yangi RSVP" : "Yangi tilak",
     `Ism: ${name}`,
     `Xabar: ${message || "Kelishimni tasdiqlayman."}`,
   ].join("\n");
