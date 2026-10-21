@@ -176,20 +176,30 @@ async function sendMessage(form, type, statusElement) {
   if (statusElement) statusElement.textContent = "";
 
   try {
+    const config = window.TELEGRAM_CONFIG;
+    if (!config?.botToken || !config?.chatId) {
+      throw new Error("Telegram bot token or chat ID is not configured.");
+    }
     const values = new FormData(form);
-    const response = await fetch("/api/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        type,
-        name: values.get("name"),
-        message: values.get("message"),
-      }),
-    });
+    const response = await fetch(
+      `https://api.telegram.org/bot${config.botToken}/sendMessage`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          chat_id: config.chatId,
+          text: [
+            type === "rsvp" ? "Yangi RSVP" : "Yangi tilak",
+            `Ism: ${values.get("name")}`,
+            `Xabar: ${values.get("message") || "Kelishimni tasdiqlayman."}`,
+          ].join("\n"),
+        }),
+      },
+    );
+    const result = await response.json().catch(() => ({}));
 
-    if (!response.ok) {
-      const result = await response.json().catch(() => ({}));
-      throw new Error(result.error || "Message could not be delivered.");
+    if (!response.ok || !result.ok) {
+      throw new Error(result.description || "Message could not be delivered.");
     }
     if (statusElement)
       statusElement.textContent = "Rahmat! Xabaringiz yuborildi.";
