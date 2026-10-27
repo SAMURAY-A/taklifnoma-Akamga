@@ -138,7 +138,7 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(./assets/ivory/envelope-cover.webp) center / contain no-repeat;
+  background: url(./assets/ivory/main.jpg) center / contain no-repeat;
   transition: opacity 0.35s ease;
 }
 .ivx-cover.is-opening .ivx-cover__art {
